@@ -1,5 +1,5 @@
 let edges = {
-  AD: { distance: 13, time: 5 },
+  AD: { distance: 23, time: 5 },
   AB: { distance: 10, time: 5 },
   CB: { distance: 4, time: 1 },
   CD: { distance: 8, time: 3 },
@@ -53,7 +53,7 @@ const shortestDistance = (graph, src, dest) => {
       path,
       graph,
       dest,
-      [neighbour, graph[src][neighbour]["time"]],
+      [neighbour, graph[src][neighbour]["distance"]],
       visited
     );
     if (minDistance > path[1]) minDistance = path[1];
@@ -76,7 +76,7 @@ const explore = (path, graph, dest, payload, visited) => {
         path,
         graph,
         dest,
-        [neighbour, graph[src][neighbour]["time"] + payload[1]],
+        [neighbour, graph[src][neighbour]["distance"] + payload[1]],
         visited
       );
   }
